@@ -1,18 +1,11 @@
-count, n = 0, int(input('Введите количество чисел: '))
+def fibonacci_sequence(n, a=0, b=1):
+    if n == 0:
+        return []
+    elif n == 1:
+        return [a]
+    else:
+        return [a] + fibonacci_sequence(n-1, b, a+b)
 
-
-def fib(an, ol, n):
-	global count 
-	count += 1
-	ne = an + ol
-	tne = ne
-	ol, an = ne, ol
-	print(tne, end=' ')
-	if count <= n: fib(an, ol, n)
-
-
-print(1, 1, end=' ')
-fib(1, 1, n)
-#1, 1 – предыдущие числа 
-#n — сколько раз
-print()
+n = int(input("Введите натуральное число n: "))
+sequence = fibonacci_sequence(n)
+print(*sequence)
